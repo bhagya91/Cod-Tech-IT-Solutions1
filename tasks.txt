@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    int randomNumber, guess, attempts = 0;
+
+    // Seed the random number generator
+    srand(time(NULL));
+
+    // Generate a random number between 1 and 100
+    randomNumber = rand() % 100 + 1;
+
+    printf("Welcome to the Number Guessing Game!\n");
+    printf("I have picked a number between 1 and 100. Try to guess it!\n");
+
+    do {
+        printf("Enter your guess: ");
+        scanf("%d", &guess);
+        attempts++;
+
+        if (guess > randomNumber) {
+            printf("Too high! Try again.\n");
+        } else if (guess < randomNumber) {
+            printf("Too low! Try again.\n");
+        } else {
+            printf("Congratulations! You guessed the number %d correctly in %d attempts!\n", randomNumber, attempts);
+        }
+    } while (guess != randomNumber);
+
+    return 0;
+}
+==========================================================================
+
+
+
+#include <stdio.h>
+
+int main() {
+    char operation;
+    float num1, num2, result;
+
+    printf("Enter first number: ");
+    scanf("%f", &num1);
+
+    printf("Enter second number: ");
+    scanf("%f", &num2);
+
+    printf("Enter operation (+ for addition, - for subtraction, * for multiplication, / for division): ");
+    scanf(" %c", &operation);
+
+    switch (operation) {
+        case '+':
+            result = num1 + num2;
+            printf("Result: %.2f + %.2f = %.2f\n", num1, num2, result);
+            break;
+        case '-':
+            result = num1 - num2;
+            printf("Result: %.2f - %.2f = %.2f\n", num1, num2, result);
+            break;
+        case '*':
+            result = num1 * num2;
+            printf("Result: %.2f * %.2f = %.2f\n", num1, num2, result);
+            break;
+        case '/':
+            if (num2 == 0) {
+                printf("Error! Division by zero is not allowed.\n");
+            } else {
+                result = num1 / num2;
+                printf("Result: %.2f / %.2f = %.2f\n", num1, num2, result);
+            }
+            break;
+        default:
+            printf("Invalid operation!\n");
+    }
+
+    return 0;
+}
+=======================================================================================
+
+
+
+
+
+
